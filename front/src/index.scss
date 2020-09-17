@@ -1,0 +1,42 @@
+*, *:before, *:after{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+.wrapper {
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+
+	& header {
+		width: 100%;
+		height: 60px;
+		display: flex;
+		align-items: center;
+		padding: 0 40px;
+		border-bottom: 2px solid black;
+	}
+
+	& footer {
+		height: 100px;
+		width: 100%;
+		border-top: 2px solid black;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+
+main {
+	height: calc(100vh - 160px);
+	padding: 20px 0;
+
+	& table {
+		& td {
+			width: 33.33%;
+			text-align: center;
+		}
+	}
+}
