@@ -22,14 +22,15 @@ const initialState = {
         newSell: 0,
         changeBuy: false,
         changeSell: false
-    }
+    },
+    error: false
 }
 
 const reducer = (state = initialState, action) => {
     switch(action.type) {
 
-        case 'PUT_FREE_BIKES':
-            return {...state, ...{freeBikes: action.data}};
+        case 'PUT_EXCHANGE_RATES':
+            return {...state, ...action.data};
 
         default:
             return state;

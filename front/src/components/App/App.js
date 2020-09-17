@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import mapDispatchToProps from '../actions';
 import getData from '../getData';
@@ -13,9 +13,18 @@ const mapStateToProps = (store) => ({...store});
 
 const App = (props) => {
 
-    (async()=>{
-        console.log(await getData())
-    })();
+    useEffect(()=> {
+        props.putExchangeRates()
+        const i = setInterval(()=>{
+            props.putExchangeRates()
+        }, 10000);
+
+        return ()=> clearInterval(i);
+    }, [])
+
+
+
+
     return (
         <>
         <div className='wrapper'>
