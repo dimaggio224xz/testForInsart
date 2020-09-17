@@ -75,11 +75,11 @@ const EurUan = (props) => {
 
 
     const saveBuy= () => {
-
+        props.saveBuyEur(buy)
     }
 
     const saveSale = () => {
-
+        props.saveSaleEur(sale)
     }
 
 

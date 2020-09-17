@@ -80,11 +80,11 @@ const UsdUah = (props) => {
 
 
     const saveBuy= () => {
-
+        props.saveBuyUsd(buy)
     }
 
     const saveSale = () => {
-
+        props.saveSaleUsd(sale)
     }
 
 
@@ -102,7 +102,7 @@ const UsdUah = (props) => {
             <td>
                 <input onMouseOver={()=>setBuyHover(true)} onMouseOut={()=>setBuyHover(false)}
                     onFocus={()=>setBuyFocus(true)} onBlur={()=>{setBuyFocus(false); setDisabledBuy(false)}}
-                    onChange={(e)=>chackBuy(e)} value={+buy || data.newBuy} className='data-input'>
+                    onChange={(e)=>chackBuy(e)} value={buy} className='data-input'>
                 </input>
                 <img className={buyPencil} src={pancil}/>
 
@@ -121,7 +121,7 @@ const UsdUah = (props) => {
             <td>
                 <input onMouseOver={()=>setSaleHover(true)} onMouseOut={()=>setSaleHover(false)}
                     onFocus={()=>setSaleFocus(true)} onBlur={()=>{setSaleFocus(false); setDisabledSale(false)}}
-                    onChange={(e)=>chackSale(e)} value={+sale || data.newSale} className='data-input'>
+                    onChange={(e)=>chackSale(e)} value={sale} className='data-input'>
                 </input>
                 <img className={salePencil} src={pancil}/>
 

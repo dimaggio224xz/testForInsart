@@ -7,24 +7,74 @@ const putExchangeRates = (data) => {
     }
 }
 
+const saveBuyUsd = (data) => {
+    return {
+        type: 'SAVE_BUY_USD',
+        data
+    }
+}
+const saveSaleUsd = (data) => {
+    return {
+        type: 'SAVE_SALE_USD',
+        data
+    }
+}
+
+const saveBuyEur = (data) => {
+    return {
+        type: 'SAVE_BUY_EUR',
+        data
+    }
+}
+const saveSaleEur = (data) => {
+    return {
+        type: 'SAVE_SALE_EUR',
+        data
+    }
+}
+
+const saveBuyBtc = (data) => {
+    return {
+        type: 'SAVE_BUY_BTC',
+        data
+    }
+}
+const saveSaleBtc = (data) => {
+    return {
+        type: 'SAVE_SALE_BTC',
+        data
+    }
+}
+
 const putExchangeRatesTh = () => (dispatch, getState) => {
-    let obj = getState();
+    let state = getState();
+    let obj = {...state};
     return getData()
         .then(res=> {
-
+            console.log(obj)
             for (let key in obj) {
                 if (key === 'error') {
                     continue;
                 }
-                obj[key].buy = res[key].buy;
-                obj[key].sale = res[key].sale;
+                let newObj = {}
+                newObj.buy = res[key].buy;
+                newObj.sale = res[key].sale;
 
                 if (!obj[key].changeBuy) {
-                    obj[key].newBuy = res[key].buy;
+                    newObj.newBuy = res[key].buy;
+                    newObj.changeBuy = false;
+                } else {
+                    newObj.changeBuy = true;
+                    newObj.newBuy = obj[key].buy;
                 }
                 if (!obj[key].changeSale) {
-                    obj[key].newSale = res[key].sale;
+                    newObj.newSale = res[key].sale;
+                    newObj.changeSale = false;
+                } else {
+                    newObj.changeSale = true;
+                    newObj.newSale = obj[key].sale;
                 }
+                obj[key] = newObj;
             }
 
             return dispatch(putExchangeRates({...obj}));
@@ -35,7 +85,13 @@ const putExchangeRatesTh = () => (dispatch, getState) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        putExchangeRates: ()=> dispatch(putExchangeRatesTh())
+        putExchangeRates: ()=> dispatch(putExchangeRatesTh()),
+        saveSaleBtc: (data)=> dispatch(saveSaleBtc(data)),
+        saveBuyBtc: (data)=> dispatch(saveBuyBtc(data)),
+        saveSaleEur: (data)=> dispatch(saveSaleEur(data)),
+        saveBuyEur: (data)=> dispatch(saveBuyEur(data)),
+        saveSaleUsd: (data)=> dispatch(saveSaleUsd(data)),
+        saveBuyUsd: (data)=> dispatch(saveBuyUsd(data))
     }
 }
 

@@ -32,7 +32,11 @@ const BtcUsd = (props) => {
     const [buyHover, setBuyHover] = useState(false);
     const [saleHover, setSaleHover] = useState(false);
 
+    const [btnBuy, setBtnBuy] = useState('d-none');
+    const [btnSale, setBtnSale] = useState('d-none');
 
+    // const btnBuy = buyFocus || buy !== data.newBuy ? 'btn-warp' : 'd-none';
+    // const btnSale = saleFocus || sale !== data.newSale ? 'btn-warp' : 'd-none';
 
     useEffect(()=>{
         if(!buyFocus) {
@@ -77,18 +81,29 @@ const BtcUsd = (props) => {
 
 
     const saveBuy= () => {
-
+        props.saveBuyBtc(buy);
+        setBtnBuy('d-none');
     }
 
     const saveSale = () => {
+        props.saveSaleBtc(sale)
+        setBtnSale('d-none');
+    }
 
+    const cancelBuy = () => {
+        setBuy(data.newBuy);
+        setBtnBuy('d-none');
+    }
+
+    const cancelSale = () => {
+        setBuy(data.newSale)
+        setBtnSale('d-none');
     }
 
 
     const buyPencil = buyHover && !buyFocus ? 'pencil' : 'd-none';
     const salePencil = saleHover && !saleFocus ? 'pencil' : 'd-none';
-    const btnBuy = buyFocus ? 'btn-warp' : 'd-none';
-    const btnSale = saleFocus ? 'btn-warp' : 'd-none';
+
 
 
 
@@ -99,7 +114,7 @@ const BtcUsd = (props) => {
             
             <td>
                 <input onMouseOver={()=>setBuyHover(true)} onMouseOut={()=>setBuyHover(false)}
-                    onFocus={()=>setBuyFocus(true)} onBlur={()=>{setBuyFocus(false); setDisabledBuy(false)}}
+                    onFocus={()=>{setBuyFocus(true); setBtnBuy('btn-warp')}} onBlur={()=>{setBuyFocus(false); setDisabledBuy(false)}}
                     onChange={(e)=>chackBuy(e)} value={buy} className='data-input'>
                 </input>
                 <img className={buyPencil} src={pancil}/>
@@ -109,7 +124,7 @@ const BtcUsd = (props) => {
                         <img className='icon-img' src={checkmark}/>
                     </button>
 
-                    <button onClick={()=>setBuy(data.newBuy)} className='btn-cancel'>
+                    <button onClick={()=>cancelBuy()} className='btn-cancel'>
                         <img className='icon-img' src={cross}/>
                     </button>
                 </div>
@@ -118,7 +133,7 @@ const BtcUsd = (props) => {
 
             <td>
                 <input onMouseOver={()=>setSaleHover(true)} onMouseOut={()=>setSaleHover(false)}
-                    onFocus={()=>setSaleFocus(true)} onBlur={()=>{setSaleFocus(false); setDisabledSale(false)}}
+                    onFocus={()=>{setSaleFocus(true); setBtnSale('btn-warp')}} onBlur={()=>{setSaleFocus(false); setDisabledSale(false)}}
                     onChange={(e)=>chackSale(e)} value={sale} className='data-input'>
                 </input>
                 <img className={salePencil} src={pancil}/>
@@ -128,7 +143,7 @@ const BtcUsd = (props) => {
                         <img className='icon-img' src={checkmark}/>
                     </button>
 
-                    <button onClick={()=>setBuy(data.newSale)} className='btn-cancel'>
+                    <button onClick={()=>cancelSale()} className='btn-cancel'>
                         <img className='icon-img' src={cross}/>
                     </button>
                 </div>
