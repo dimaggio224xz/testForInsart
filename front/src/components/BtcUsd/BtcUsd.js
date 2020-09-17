@@ -23,7 +23,7 @@ const BtcUsd = (props) => {
 
 
     const [disabledBuy, setDisabledBuy] = useState(false);
-    const [disabledSalse, setDisabledSale] = useState(false);
+    const [disabledSale, setDisabledSale] = useState(false);
 
 
     const [buyFocus, setBuyFocus] = useState(false);
@@ -35,14 +35,13 @@ const BtcUsd = (props) => {
     const [btnBuy, setBtnBuy] = useState('d-none');
     const [btnSale, setBtnSale] = useState('d-none');
 
-    // const btnBuy = buyFocus || buy !== data.newBuy ? 'btn-warp' : 'd-none';
-    // const btnSale = saleFocus || sale !== data.newSale ? 'btn-warp' : 'd-none';
+
 
     useEffect(()=>{
-        if(!buyFocus) {
+        if(!buyFocus && btnBuy!=='btn-warp') {
             setBuy(data.newBuy);
         }
-        if (!saleFocus) {
+        if (!saleFocus && btnSale!=='btn-warp') {
             setSale(data.newSale);
         }
     })
@@ -70,10 +69,10 @@ const BtcUsd = (props) => {
             setSale(value);
 
             if (+value > data.sale + sale10 || +value < data.sale - sale10) {
-                if(!disabledBuy) 
+                if(!disabledSale) 
                     setDisabledSale(true);
             } else {
-                if(disabledBuy) 
+                if(disabledSale) 
                     setDisabledSale(false);
             }
         }
@@ -81,6 +80,7 @@ const BtcUsd = (props) => {
 
 
     const saveBuy= () => {
+        console.log(buy)
         props.saveBuyBtc(buy);
         setBtnBuy('d-none');
     }
@@ -139,7 +139,7 @@ const BtcUsd = (props) => {
                 <img className={salePencil} src={pancil}/>
 
                 <div className={btnSale}>
-                    <button disabled={disabledSalse} onClick={()=>saveSale()} className='btn-save'>
+                    <button disabled={disabledSale} onClick={()=>saveSale()} className='btn-save'>
                         <img className='icon-img' src={checkmark}/>
                     </button>
 

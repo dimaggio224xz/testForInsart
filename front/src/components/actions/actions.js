@@ -51,28 +51,29 @@ const putExchangeRatesTh = () => (dispatch, getState) => {
     let obj = {...state};
     return getData()
         .then(res=> {
-            console.log(obj)
+
             for (let key in obj) {
-                if (key === 'error') {
+                if (key!=='USD_UAH' && key!=='EUR_UAH' && key!=='BTC_USD') {
                     continue;
                 }
                 let newObj = {}
                 newObj.buy = res[key].buy;
                 newObj.sale = res[key].sale;
-
+                
                 if (!obj[key].changeBuy) {
                     newObj.newBuy = res[key].buy;
                     newObj.changeBuy = false;
                 } else {
                     newObj.changeBuy = true;
-                    newObj.newBuy = obj[key].buy;
+                    newObj.newBuy = obj[key].newBuy;
                 }
+
                 if (!obj[key].changeSale) {
                     newObj.newSale = res[key].sale;
                     newObj.changeSale = false;
                 } else {
                     newObj.changeSale = true;
-                    newObj.newSale = obj[key].sale;
+                    newObj.newSale = obj[key].newSale;
                 }
                 obj[key] = newObj;
             }
