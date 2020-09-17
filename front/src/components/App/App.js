@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import mapDispatchToProps from '../actions';
-import getData from '../getData';
+
 import UsdUah from '../UsdUah';
 import EurUah from '../EurUah';
 import BtcUsd from '../BtcUsd';
 
-const mapStateToProps = (store) => ({...store});
+
 
 
 
@@ -17,11 +17,10 @@ const App = (props) => {
         props.putExchangeRates()
         const i = setInterval(()=>{
             props.putExchangeRates()
-        }, 10000);
+        }, 2000);
 
         return ()=> clearInterval(i);
     }, [])
-
 
 
 
@@ -62,4 +61,4 @@ const App = (props) => {
 }
 
 
-export default connect( mapStateToProps, mapDispatchToProps )(App);
+export default connect( null, mapDispatchToProps )(App);

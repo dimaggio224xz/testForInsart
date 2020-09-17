@@ -3,25 +3,25 @@ const initialState = {
         buy: 0,
         sale: 0,
         newBuy: 0,
-        newSell: 0,
+        newSale: 0,
         changeBuy: false,
-        changeSell: false
+        changeSale: false
     },
     EUR_UAH: {
         buy: 0,
         sale: 0,
         newBuy: 0,
-        newSell: 0,
+        newSale: 0,
         changeBuy: false,
-        changeSell: false
+        changeSale: false
     },
     BTC_USD: {
         buy: 0,
         sale: 0,
         newBuy: 0,
-        newSell: 0,
+        newSale: 0,
         changeBuy: false,
-        changeSell: false
+        changeSale: false
     },
     error: false
 }

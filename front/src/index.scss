@@ -71,13 +71,18 @@ main {
 
 				& .btn-save {
 					border-radius: 3px;
-
+					background-color: rgb(236, 236, 236);
+					border: 2px solid rgb(195, 195, 195);
 					color: rgb(0, 255, 0);
 					width: 20px;
 					height: 20px;
 
+					&:disabled {
+						opacity: 0.3;
+					}
+
 					& .icon-img {
-						width: 16px;
+						width: 18px;
 						position: relative;
 						top: -5px;
 					}
