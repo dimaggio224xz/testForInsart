@@ -35,6 +35,8 @@ const BtcUsd = (props) => {
     const [btnBuy, setBtnBuy] = useState('d-none');
     const [btnSale, setBtnSale] = useState('d-none');
 
+    const chack10Buy = value => +value > data.buy + buy10 || +value < data.buy - buy10 ? true : false;
+    const chack10Sale = value => +value > data.sale + sale10 || +value < data.sale - sale10 ? true : false;
 
 
     useEffect(()=>{
@@ -52,7 +54,7 @@ const BtcUsd = (props) => {
         if(chackPrice(value)) {
             setBuy(value);
 
-            if (+value > data.buy + buy10 || +value < data.buy - buy10) {
+            if (chack10Buy(value)) {
                 if(!disabledBuy) 
                     setDisabledBuy(true);
             } else {
@@ -68,7 +70,7 @@ const BtcUsd = (props) => {
         if(chackPrice(value)) {
             setSale(value);
 
-            if (+value > data.sale + sale10 || +value < data.sale - sale10) {
+            if (chack10Sale(value)) {
                 if(!disabledSale) 
                     setDisabledSale(true);
             } else {
@@ -79,15 +81,60 @@ const BtcUsd = (props) => {
     }
 
 
+
+    const onFocusBuy = () => {
+        if(chack10Buy(buy)) {
+            setDisabledBuy(true)
+        } else {
+            setDisabledBuy(false)
+        }
+        setBuyFocus(true);
+        setBtnBuy('btn-warp');
+    }
+
+    const onFocusSale = () => {
+        if(chack10Sale(sale)) {
+            setDisabledSale(true)
+        } else {
+            setDisabledSale(false)
+        }
+        setSaleFocus(true);
+        setBtnSale('btn-warp');
+    }
+
+    const onBlurBuy = () => {
+        if(chack10Buy(buy)) {
+            setDisabledBuy(true)
+        } else {
+            setDisabledBuy(false)
+        }
+        setBuyFocus(false);
+    }
+    
+    const onBlurSale = () => {
+        console.log(disabledSale)
+        if(chack10Sale(sale)) {
+            setDisabledSale(true)
+        } else {
+            setDisabledSale(false)
+        }
+        setSaleFocus(false);
+    }
+
+
+
     const saveBuy= () => {
-        console.log(buy)
-        props.saveBuyBtc(buy);
-        setBtnBuy('d-none');
+        if(!chack10Buy(buy)) {
+            props.saveBuyBtc(buy);
+            setBtnBuy('d-none');
+        }
     }
 
     const saveSale = () => {
-        props.saveSaleBtc(sale)
+        if(!chack10Sale(sale)) {
+            props.saveSaleBtc(sale)
         setBtnSale('d-none');
+        }
     }
 
     const cancelBuy = () => {
@@ -105,7 +152,8 @@ const BtcUsd = (props) => {
     const salePencil = saleHover && !saleFocus ? 'pencil' : 'd-none';
 
 
-
+    const btnBuyStyle = disabledBuy ? 'btn-save btn-disabled' : 'btn-save';
+    const btnSaleStyle = disabledSale ? 'btn-save btn-disabled' : 'btn-save';
 
     return (
         <>
@@ -114,13 +162,13 @@ const BtcUsd = (props) => {
             
             <td>
                 <input onMouseOver={()=>setBuyHover(true)} onMouseOut={()=>setBuyHover(false)}
-                    onFocus={()=>{setBuyFocus(true); setBtnBuy('btn-warp')}} onBlur={()=>{setBuyFocus(false); setDisabledBuy(false)}}
+                    onFocus={()=>onFocusBuy()} onBlur={()=>onBlurBuy()}
                     onChange={(e)=>chackBuy(e)} value={buy} className='data-input'>
                 </input>
                 <img className={buyPencil} src={pancil}/>
 
                 <div className={btnBuy}>
-                    <button disabled={disabledBuy} onClick={()=>saveBuy()} className='btn-save'>
+                    <button onClick={()=>saveBuy()} className={btnBuyStyle}>
                         <img className='icon-img' src={checkmark}/>
                     </button>
 
@@ -133,13 +181,13 @@ const BtcUsd = (props) => {
 
             <td>
                 <input onMouseOver={()=>setSaleHover(true)} onMouseOut={()=>setSaleHover(false)}
-                    onFocus={()=>{setSaleFocus(true); setBtnSale('btn-warp')}} onBlur={()=>{setSaleFocus(false); setDisabledSale(false)}}
+                    onFocus={()=>onFocusSale()} onBlur={()=>onBlurSale()}
                     onChange={(e)=>chackSale(e)} value={sale} className='data-input'>
                 </input>
                 <img className={salePencil} src={pancil}/>
 
                 <div className={btnSale}>
-                    <button disabled={disabledSale} onClick={()=>saveSale()} className='btn-save'>
+                    <button onClick={()=>saveSale()} className={btnSaleStyle}>
                         <img className='icon-img' src={checkmark}/>
                     </button>
 

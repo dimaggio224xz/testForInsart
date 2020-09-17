@@ -40,14 +40,13 @@ const reducer = (state = initialState, action) => {
 
         
         case 'SAVE_BUY_EUR':
-            return {...state, ...{USD_UAH: {...state.USD_UAH, ...{newBuy: +action.data, changeBuy: true}} }};
+            return {...state, ...{EUR_UAH: {...state.EUR_UAH, ...{newBuy: +action.data, changeBuy: true}} }};
 
         case 'SAVE_SALE_EUR':
             return {...state, ...{EUR_UAH: {...state.EUR_UAH, ...{newSale: +action.data, changeSale: true}} }};
 
             
         case 'SAVE_BUY_BTC':
-            console.log(action.data)
             return {...state, ...{BTC_USD: {...state.BTC_USD, ...{newBuy: +action.data, changeBuy: true}} }};
 
         case 'SAVE_SALE_BTC':

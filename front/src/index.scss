@@ -77,15 +77,15 @@ main {
 					width: 20px;
 					height: 20px;
 
-					&:disabled {
-						opacity: 0.3;
-					}
-
 					& .icon-img {
 						width: 18px;
 						position: relative;
 						top: -5px;
 					}
+				}
+
+				& .btn-disabled {
+					opacity: 0.25;
 				}
 	
 				& .btn-cancel {
