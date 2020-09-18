@@ -56,7 +56,9 @@ const Converter = (props) => {
     const calcResult = () => {
         if (props.BTC_USD && props.USD_UAH && props.EUR_UAH) {
             const answer = calcMainResault(give, giveSelect, getSelect, props)
-            console.log(answer)
+            if(answer) {
+                setGet(answer.toFixed(8));
+            }
         }
 
     }
@@ -99,8 +101,11 @@ const Converter = (props) => {
                     </select>
                 </div>
             </div>
-
-            <button onClick={()=>calcResult()} className='calc-btn'>Calculate</button>
+            <div>
+                <button onClick={()=>calcResult()} className='calc-btn'>Calculate</button>
+                <button onClick={()=>{setGive('');  setGet('')}}>Clear</button>
+            </div>
+            
         </div>
         </>
     )

@@ -17,7 +17,7 @@ const App = (props) => {
         props.putExchangeRates()
         const i = setInterval(()=>{
             props.putExchangeRates()
-        }, 5000);
+        }, 5100);
 
         return ()=> clearInterval(i);
     }, [])
