@@ -5,7 +5,7 @@ import mapDispatchToProps from '../actions';
 import UsdUah from '../UsdUah';
 import EurUah from '../EurUah';
 import BtcUsd from '../BtcUsd';
-
+import Converter from '../Converter';
 
 
 
@@ -50,6 +50,9 @@ const App = (props) => {
                             <BtcUsd/>
                         </tbody>
                     </table>
+
+                    <Converter/>
+
                 </div>
             </main>
             <footer>

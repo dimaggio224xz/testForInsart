@@ -33,24 +33,24 @@ const reducer = (state = initialState, action) => {
             return {...state, ...action.data};
 
         case 'SAVE_BUY_USD':
-            return {...state, ...{USD_UAH: {...state.USD_UAH, ...{newBuy: +action.data, changeBuy: true}} }};
+            return {...state, ...{USD_UAH: {...state.USD_UAH, ...{newBuy: action.data, changeBuy: true}} }};
 
         case 'SAVE_SALE_USD':
-            return {...state, ...{USD_UAH: {...state.USD_UAH, ...{newSale: +action.data, changeSale: true}} }};
+            return {...state, ...{USD_UAH: {...state.USD_UAH, ...{newSale: action.data, changeSale: true}} }};
 
         
         case 'SAVE_BUY_EUR':
-            return {...state, ...{EUR_UAH: {...state.EUR_UAH, ...{newBuy: +action.data, changeBuy: true}} }};
+            return {...state, ...{EUR_UAH: {...state.EUR_UAH, ...{newBuy: action.data, changeBuy: true}} }};
 
         case 'SAVE_SALE_EUR':
-            return {...state, ...{EUR_UAH: {...state.EUR_UAH, ...{newSale: +action.data, changeSale: true}} }};
+            return {...state, ...{EUR_UAH: {...state.EUR_UAH, ...{newSale: action.data, changeSale: true}} }};
 
             
         case 'SAVE_BUY_BTC':
-            return {...state, ...{BTC_USD: {...state.BTC_USD, ...{newBuy: +action.data, changeBuy: true}} }};
+            return {...state, ...{BTC_USD: {...state.BTC_USD, ...{newBuy: action.data, changeBuy: true}} }};
 
         case 'SAVE_SALE_BTC':
-            return {...state, ...{BTC_USD: {...state.BTC_USD, ...{newSale: +action.data, changeSale: true}} }};
+            return {...state, ...{BTC_USD: {...state.BTC_USD, ...{newSale: action.data, changeSale: true}} }};
 
         default:
             return state;

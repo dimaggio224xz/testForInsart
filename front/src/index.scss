@@ -34,10 +34,13 @@ main {
 	padding: 20px 0;
 
 	& table {
+		margin-bottom: 20px;
+
 		& td {
 			width: 33.33%;
 			text-align: center;
 			position: relative;
+			border: 1px solid black !important;
 
 			& .data-input {
 				max-width: 100px;
@@ -102,6 +105,76 @@ main {
 						top: -5px;
 					}
 				}
+			}
+		}
+	}
+}
+
+
+.converter-wrap {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	& .converter {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		margin-bottom: 10px;
+
+		&-arrows-btn {
+			width: 40px;
+			outline: none;
+			background-color: rgba(255, 255, 255, 0);
+			border: none;
+			border-radius: 8px;
+			margin: 0 34px;
+			transition-duration: 0.2s;
+
+			&:hover {
+				background-color: rgb(233, 233, 233);
+			}
+
+			& img {
+				transform: rotate(90deg);
+				width: 100%;
+				height: auto;
+			}
+		}
+
+		&-inputs {
+			display: flex;
+
+			& label {
+				display: flex;
+				flex-direction: column;
+
+				& span {
+					font-size: 20px;
+					font-weight: bold;
+					margin-bottom: 9px;
+				}
+
+				& input {
+					border: none;
+					border-bottom: 2px solid rgb(0, 0, 0);
+					outline: none;
+					padding-left: 7px;
+					font-size: 19px;
+
+					&:disabled {
+						background-color: rgb(255, 255, 255);
+					}
+				}
+			}
+
+			& select{
+				border: none;
+				outline: none;
+				font-weight: bold;
+				background-color: rgba(255, 255, 255, 0);
+				margin-left: 8px;
 			}
 		}
 	}

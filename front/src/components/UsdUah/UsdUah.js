@@ -115,7 +115,6 @@ const UsdUah = (props) => {
     }
     
     const onBlurSale = () => {
-        console.log(disabledSale)
         if(chack10Sale(sale)) {
             setDisabledSale(true)
         } else {

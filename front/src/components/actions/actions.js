@@ -8,41 +8,42 @@ const putExchangeRates = (data) => {
 }
 
 const saveBuyUsd = (data) => {
+    console.log(data)
     return {
         type: 'SAVE_BUY_USD',
-        data
+        data: +((+data).toFixed(1))
     }
 }
 const saveSaleUsd = (data) => {
     return {
         type: 'SAVE_SALE_USD',
-        data
+        data: +((+data).toFixed(1))
     }
 }
 
 const saveBuyEur = (data) => {
     return {
         type: 'SAVE_BUY_EUR',
-        data
+        data: +((+data).toFixed(1))
     }
 }
 const saveSaleEur = (data) => {
     return {
         type: 'SAVE_SALE_EUR',
-        data
+        data: +((+data).toFixed(1))
     }
 }
 
 const saveBuyBtc = (data) => {
     return {
         type: 'SAVE_BUY_BTC',
-        data
+        data: +((+data).toFixed(0))
     }
 }
 const saveSaleBtc = (data) => {
     return {
         type: 'SAVE_SALE_BTC',
-        data
+        data: +((+data).toFixed(0))
     }
 }
 
