@@ -84,7 +84,7 @@ const Converter = (props) => {
                 </div>
 
                 <button onClick={()=>changeSelects()} className='converter-arrows-btn'>
-                    <img src={arrowsIcon}/>
+                    <img src={arrowsIcon} alt='some icon'/>
                 </button>
 
                 <div className='converter-inputs'>
@@ -103,7 +103,7 @@ const Converter = (props) => {
             </div>
             <div>
                 <button onClick={()=>calcResult()} className='calc-btn'>Calculate</button>
-                <button onClick={()=>{setGive('');  setGet('')}}>Clear</button>
+                <button onClick={()=>{setGive('');  setGet('')}} className='clear-btn'>Clear</button>
             </div>
             
         </div>

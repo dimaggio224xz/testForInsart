@@ -1,3 +1,18 @@
+$red-color: #fc003d;
+$grey-color: #41414c;
+
+%buttot-style {
+	border: none;
+	outline: none;
+	border-radius: 6px;
+	height: 40px;
+	font-size: 20px;
+	color: rgb(255, 255, 255);
+	box-shadow: 0px 5px 8px 0px rgba(0,0,0,0.3);
+}
+
+
+
 *, *:before, *:after{
 	box-sizing: border-box;
 	margin: 0;
@@ -7,7 +22,7 @@
 .wrapper {
 	width: 100vw;
 	height: 100vh;
-	overflow: hidden;
+	
 
 	& header {
 		width: 100%;
@@ -15,13 +30,23 @@
 		display: flex;
 		align-items: center;
 		padding: 0 40px;
-		border-bottom: 2px solid black;
+		border-bottom: 5px solid $red-color;
+		box-shadow: 0px 6px 22px -5px rgba(0,0,0,0.18);
+
+		& .text-logo{
+			font-weight: bold;
+			font-style: italic;
+			color: $grey-color;
+			font-size: 30px;
+		}
 	}
 
 	& footer {
 		height: 100px;
 		width: 100%;
-		border-top: 2px solid black;
+		// border-top: 4px solid $red-color;
+		background-color: $grey-color;
+		color: white;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -29,19 +54,26 @@
 }
 
 
+
+
 main {
 	height: calc(100vh - 160px);
-	padding: 20px 0;
+	padding: 34px 0 20px;
 
 	& table {
 		margin-bottom: 20px;
 		position: relative;
+
+		& caption{
+			padding: 0;
+		}
 
 		& td {
 			width: 33.33%;
 			text-align: center;
 			position: relative;
 			border: 1px solid black !important;
+
 
 			& .data-input {
 				max-width: 100px;
@@ -111,6 +143,11 @@ main {
 	}
 }
 
+.td-style {
+	font-weight: bold;
+	color: $grey-color;
+}
+
 
 .converter-wrap {
 	width: 100%;
@@ -154,6 +191,7 @@ main {
 				& span {
 					font-size: 20px;
 					font-weight: bold;
+					color: $grey-color;
 					margin-bottom: 9px;
 				}
 
@@ -175,8 +213,32 @@ main {
 				outline: none;
 				font-weight: bold;
 				background-color: rgba(255, 255, 255, 0);
+				color: $grey-color;
 				margin-left: 8px;
 			}
+		}
+	}
+
+	& .calc-btn {
+		@extend %buttot-style;
+		width: 120px;
+		background-color: $red-color;
+		color: rgb(255, 255, 255);
+		margin-right: 10px;
+
+		&:hover {
+			background-color: #e7003a;
+		}
+	}
+
+	& .clear-btn {
+		@extend %buttot-style;
+		width: 70px;
+		background-color: #636375;
+		color: rgb(255, 255, 255);
+
+		&:hover {
+			background-color: #545464;
 		}
 	}
 }

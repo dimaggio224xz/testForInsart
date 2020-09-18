@@ -31,8 +31,8 @@ const App = (props) => {
         <>
         <div className='wrapper'>
             <header>
-                <div>
-                    Text<br/>Logo
+                <div className='text-logo'>
+                    Currency Exchange
                 </div>
             </header>
             <main>
@@ -46,9 +46,9 @@ const App = (props) => {
 
                         <thead>
                             <tr>
-                                <td>Currency/Current <br/>Date</td>
-                                <td>Buy</td>
-                                <td>Sell</td>
+                                <td className='td-style'>Currency/Current <br/>Date</td>
+                                <td className='td-style'>Buy</td>
+                                <td className='td-style'>Sell</td>
                             </tr>
                         </thead>
                         <tbody>

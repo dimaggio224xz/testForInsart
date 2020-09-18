@@ -46,7 +46,7 @@ const BtcUsd = (props) => {
         if (!saleFocus && btnSale!=='btn-warp') {
             setSale(data.newSale);
         }
-    })
+    }, [props.BTC_USD])
 
     const chackBuy = (e) => {
 
@@ -157,22 +157,22 @@ const BtcUsd = (props) => {
     return (
         <>
         <tr>
-            <td>BTC/USD</td>
+            <td className='td-style'>BTC/USD</td>
             
             <td>
                 <input onMouseOver={()=>setBuyHover(true)} onMouseOut={()=>setBuyHover(false)}
                     onFocus={()=>onFocusBuy()} onBlur={()=>onBlurBuy()}
                     onChange={(e)=>chackBuy(e)} value={buy} className='data-input'>
                 </input>
-                <img className={buyPencil} src={pancil}/>
+                <img className={buyPencil} src={pancil} alt='some icon'/>
 
                 <div className={btnBuy}>
                     <button onClick={()=>saveBuy()} className={btnBuyStyle}>
-                        <img className='icon-img' src={checkmark}/>
+                        <img className='icon-img' src={checkmark} alt='some icon'/>
                     </button>
 
                     <button onClick={()=>cancelBuy()} className='btn-cancel'>
-                        <img className='icon-img' src={cross}/>
+                        <img className='icon-img' src={cross} alt='some icon'/>
                     </button>
                 </div>
             </td>
@@ -183,15 +183,15 @@ const BtcUsd = (props) => {
                     onFocus={()=>onFocusSale()} onBlur={()=>onBlurSale()}
                     onChange={(e)=>chackSale(e)} value={sale} className='data-input'>
                 </input>
-                <img className={salePencil} src={pancil}/>
+                <img className={salePencil} src={pancil} alt='some icon'/>
 
                 <div className={btnSale}>
                     <button onClick={()=>saveSale()} className={btnSaleStyle}>
-                        <img className='icon-img' src={checkmark}/>
+                        <img className='icon-img' src={checkmark} alt='some icon'/>
                     </button>
 
                     <button onClick={()=>cancelSale()} className='btn-cancel'>
-                        <img className='icon-img' src={cross}/>
+                        <img className='icon-img' src={cross} alt='some icon'/>
                     </button>
                 </div>
             </td>

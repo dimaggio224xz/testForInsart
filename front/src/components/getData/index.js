@@ -2,7 +2,7 @@ export default async function () {
         let error5 = localStorage.getItem('counterError');
         console.log(error5)
         if (error5 >= 5) {
-            localStorage.setItem('counterError', 0);
+            localStorage.setItem('counterError', 1);
             throw new Error(`WRONG_DATA`);
         }
         else {
