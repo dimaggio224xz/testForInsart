@@ -47,6 +47,12 @@ const saveSaleBtc = (data) => {
     }
 }
 
+const putError = () => {
+    return {
+        type: 'PUT_ERROR'
+    }
+}
+
 const putExchangeRatesTh = () => (dispatch, getState) => {
     let state = getState();
     let obj = {...state};
@@ -78,10 +84,10 @@ const putExchangeRatesTh = () => (dispatch, getState) => {
                 }
                 obj[key] = newObj;
             }
-
+            obj.error = false;
             return dispatch(putExchangeRates({...obj}));
         })
-        .catch(err => console.log(err))
+        .catch(err => dispatch(putError()))
 };
 
 

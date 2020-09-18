@@ -1,4 +1,15 @@
 export default async function () {
+        let error5 = localStorage.getItem('counterError');
+        console.log(error5)
+        if (error5 >= 5) {
+            localStorage.setItem('counterError', 0);
+            throw new Error(`WRONG_DATA`);
+        }
+        else {
+            localStorage.setItem('counterError', ++error5)
+        }
+
+
     const res = await fetch("https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5")
     if (!res.ok) throw new Error(`COULD_NOT_GET_DATA`);
     const a = await res.json();

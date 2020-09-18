@@ -6,14 +6,17 @@ import UsdUah from '../UsdUah';
 import EurUah from '../EurUah';
 import BtcUsd from '../BtcUsd';
 import Converter from '../Converter';
+import ErrorMSG from '../ErrorMSG';
 
-
+const mapStateToProps = (store) => ({error: store.error});
 
 
 
 const App = (props) => {
 
     useEffect(()=> {
+        localStorage.setItem('counterError', 0);
+
         props.putExchangeRates()
         const i = setInterval(()=>{
             props.putExchangeRates()
@@ -22,7 +25,7 @@ const App = (props) => {
         return ()=> clearInterval(i);
     }, [])
 
-
+    const errorStyle = props.error ? '' : 'd-none';
 
     return (
         <>
@@ -34,7 +37,13 @@ const App = (props) => {
             </header>
             <main>
                 <div className='container'>
+
                     <table className="table table-bordered">
+                        
+                        <caption className={errorStyle}>
+                            <ErrorMSG/>
+                        </caption>
+
                         <thead>
                             <tr>
                                 <td>Currency/Current <br/>Date</td>
@@ -51,6 +60,7 @@ const App = (props) => {
                         </tbody>
                     </table>
 
+
                     <Converter/>
 
                 </div>
@@ -64,4 +74,4 @@ const App = (props) => {
 }
 
 
-export default connect( null, mapDispatchToProps )(App);
+export default connect( mapStateToProps, mapDispatchToProps )(App);

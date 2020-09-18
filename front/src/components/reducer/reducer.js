@@ -52,6 +52,9 @@ const reducer = (state = initialState, action) => {
         case 'SAVE_SALE_BTC':
             return {...state, ...{BTC_USD: {...state.BTC_USD, ...{newSale: action.data, changeSale: true}} }};
 
+        case 'PUT_ERROR':
+            return {...state, ...{error: true}}
+
         default:
             return state;
     }
