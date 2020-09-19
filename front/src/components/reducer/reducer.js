@@ -1,3 +1,15 @@
+import {
+    PUT_EXCHANGE_RATES,
+    SAVE_BUY_USD,
+    SAVE_SALE_USD,
+    SAVE_BUY_EUR,
+    SAVE_SALE_EUR,
+    SAVE_BUY_BTC,
+    SAVE_SALE_BTC,
+    PUT_ERROR
+} from '../actionTypes/index.js';
+
+
 const initialState = {
     USD_UAH: {
         buy: 0,
@@ -29,31 +41,31 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     switch(action.type) {
 
-        case 'PUT_EXCHANGE_RATES':
+        case PUT_EXCHANGE_RATES:
             return {...state, ...action.data};
 
-        case 'SAVE_BUY_USD':
+        case SAVE_BUY_USD:
             return {...state, ...{USD_UAH: {...state.USD_UAH, ...{newBuy: action.data, changeBuy: true}} }};
 
-        case 'SAVE_SALE_USD':
+        case SAVE_SALE_USD:
             return {...state, ...{USD_UAH: {...state.USD_UAH, ...{newSale: action.data, changeSale: true}} }};
 
         
-        case 'SAVE_BUY_EUR':
+        case SAVE_BUY_EUR:
             return {...state, ...{EUR_UAH: {...state.EUR_UAH, ...{newBuy: action.data, changeBuy: true}} }};
 
-        case 'SAVE_SALE_EUR':
+        case SAVE_SALE_EUR:
             return {...state, ...{EUR_UAH: {...state.EUR_UAH, ...{newSale: action.data, changeSale: true}} }};
 
             
-        case 'SAVE_BUY_BTC':
+        case SAVE_BUY_BTC:
             return {...state, ...{BTC_USD: {...state.BTC_USD, ...{newBuy: action.data, changeBuy: true}} }};
 
-        case 'SAVE_SALE_BTC':
+        case SAVE_SALE_BTC:
             return {...state, ...{BTC_USD: {...state.BTC_USD, ...{newSale: action.data, changeSale: true}} }};
 
-        case 'PUT_ERROR':
-            return {...state, ...{error: true}}
+        case PUT_ERROR:
+            return {...state, ...{error: true}};
 
         default:
             return state;

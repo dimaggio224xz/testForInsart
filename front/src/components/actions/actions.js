@@ -1,8 +1,20 @@
 import getData from '../getData';
+import {
+    PUT_EXCHANGE_RATES,
+    SAVE_BUY_USD,
+    SAVE_SALE_USD,
+    SAVE_BUY_EUR,
+    SAVE_SALE_EUR,
+    SAVE_BUY_BTC,
+    SAVE_SALE_BTC,
+    PUT_ERROR
+} from '../actionTypes/index.js';
+
+
 
 const putExchangeRates = (data) => {
     return {
-        type: 'PUT_EXCHANGE_RATES',
+        type: PUT_EXCHANGE_RATES,
         data
     }
 }
@@ -10,46 +22,46 @@ const putExchangeRates = (data) => {
 const saveBuyUsd = (data) => {
     console.log(data)
     return {
-        type: 'SAVE_BUY_USD',
+        type: SAVE_BUY_USD,
         data: +((+data).toFixed(1))
     }
 }
 const saveSaleUsd = (data) => {
     return {
-        type: 'SAVE_SALE_USD',
+        type: SAVE_SALE_USD,
         data: +((+data).toFixed(1))
     }
 }
 
 const saveBuyEur = (data) => {
     return {
-        type: 'SAVE_BUY_EUR',
+        type: SAVE_BUY_EUR,
         data: +((+data).toFixed(1))
     }
 }
 const saveSaleEur = (data) => {
     return {
-        type: 'SAVE_SALE_EUR',
+        type: SAVE_SALE_EUR,
         data: +((+data).toFixed(1))
     }
 }
 
 const saveBuyBtc = (data) => {
     return {
-        type: 'SAVE_BUY_BTC',
+        type: SAVE_BUY_BTC,
         data: +((+data).toFixed(0))
     }
 }
 const saveSaleBtc = (data) => {
     return {
-        type: 'SAVE_SALE_BTC',
+        type: SAVE_SALE_BTC,
         data: +((+data).toFixed(0))
     }
 }
 
 const putError = () => {
     return {
-        type: 'PUT_ERROR'
+        type: PUT_ERROR
     }
 }
 
