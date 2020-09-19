@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import mapDispatchToProps from '../actions'
+
+import mapDispatchToProps from '../../redux/actions';
 import pancil from '../../icons/pencil.png';
 import checkmark from '../../icons/checkmark.png';
 import cross from '../../icons/cross.png';
-import chackPrice from '../chackPrice';
+import chackPrice from '../../tools/chackPrice';
 
 const mapStateToProps = (store) => ({...store});
 

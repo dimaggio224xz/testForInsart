@@ -5,7 +5,7 @@ import App from './components/App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
-import reducer from './components/reducer';
+import reducer from './redux/reducer';
 import { createStore, applyMiddleware } from 'redux';
 
 

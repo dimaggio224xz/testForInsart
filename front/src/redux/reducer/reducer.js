@@ -7,7 +7,7 @@ import {
     SAVE_BUY_BTC,
     SAVE_SALE_BTC,
     PUT_ERROR
-} from '../actionTypes/index.js';
+} from '../actionTypes';
 
 
 const initialState = {

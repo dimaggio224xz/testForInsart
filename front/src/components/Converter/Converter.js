@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import arrowsIcon from '../../icons/arrows.png';
 
-import chackPrice from '../chackPrice';
-import calcMainResault from '../calcMainResault';
+import chackPrice from '../../tools/chackPrice';
+import calcMainResault from '../../tools/calcMainResault';
 
 const mapStateToProps = (store) => ({...store});
 

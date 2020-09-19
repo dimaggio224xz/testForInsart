@@ -1,4 +1,4 @@
-import getData from '../getData';
+import getData from '../../tools/getData';
 import {
     PUT_EXCHANGE_RATES,
     SAVE_BUY_USD,
@@ -8,7 +8,7 @@ import {
     SAVE_BUY_BTC,
     SAVE_SALE_BTC,
     PUT_ERROR
-} from '../actionTypes/index.js';
+} from '../actionTypes';
 
 
 
