@@ -25,7 +25,7 @@ const App = (props) => {
         return ()=> clearInterval(i);
     }, [])
 
-    const errorStyle = props.error ? '' : 'd-none';
+    const errorStyle = props.error ? 'd-none' : 'd-none';
 
     return (
         <>
@@ -37,28 +37,29 @@ const App = (props) => {
             </header>
             <main>
                 <div className='container'>
+                    <div className='table-responsive'>
+                        <table className="table table-bordered">
+                            
+                            <caption className={errorStyle}>
+                                <ErrorMSG/>
+                            </caption>
 
-                    <table className="table table-bordered">
-                        
-                        <caption className={errorStyle}>
-                            <ErrorMSG/>
-                        </caption>
+                            <thead>
+                                <tr>
+                                    <td className='td-style'>Currency/Current <br/>Date</td>
+                                    <td className='td-style'>Buy</td>
+                                    <td className='td-style'>Sell</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <UsdUah/>
 
-                        <thead>
-                            <tr>
-                                <td className='td-style'>Currency/Current <br/>Date</td>
-                                <td className='td-style'>Buy</td>
-                                <td className='td-style'>Sell</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <UsdUah/>
+                                <EurUah/>
 
-                            <EurUah/>
-
-                            <BtcUsd/>
-                        </tbody>
-                    </table>
+                                <BtcUsd/>
+                            </tbody>
+                        </table>
+                    </div>
 
 
                     <Converter/>

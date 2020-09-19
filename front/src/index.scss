@@ -11,17 +11,19 @@ $grey-color: #41414c;
 	box-shadow: 0px 5px 8px 0px rgba(0,0,0,0.3);
 }
 
-
-
 *, *:before, *:after{
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
 }
 
+body {
+	overflow: hidden;
+}
+
 .wrapper {
-	width: 100vw;
-	height: 100vh;
+	min-width: 100vw;
+	min-height: 100vh;
 	
 
 	& header {
@@ -96,13 +98,13 @@ main {
 				height: auto;
 				width: 20px;
 				top: 0;
-				left: 60%;
+				left: 62%;
 			}
 
 			& .btn-warp{
 				position: absolute;
 				top: 0;
-				left: 65%;
+				left: 70%;
 				
 
 				& .btn-save {
@@ -160,6 +162,7 @@ main {
 		display: flex;
 		justify-content: center;
 		margin-bottom: 10px;
+		position: relative;
 
 		&-arrows-btn {
 			width: 40px;
@@ -266,6 +269,303 @@ main {
 			font-size: 70px;
 			font-weight: 800;
 		}
+
+		& a {
+			font-size: 12px;
+		}
 	}
 }
 
+
+
+
+
+
+@media all and (max-width: 768px), all and (max-height: 580px) {
+	.wrapper {
+		& header {
+			height: 50px;
+			& .text-logo{
+				font-size: 24px;
+			}
+		}
+	
+		& footer {
+			height: 50px;
+			font-size: 14px;
+		}
+	}
+	main {
+		padding-top: 20px;
+		height: calc(100vh - 100px);
+
+		& table {
+			& td {
+				font-size: 15px;
+
+				& .data-input {
+					font-size: 16px;
+				}
+
+				& .pencil {
+					width: 18px;
+				}
+			}
+		}
+	}
+}
+
+
+
+
+@media all and (max-width: 768px) {
+
+	main {
+		& table {
+			& td {
+				& .pencil {
+					width: 18px;
+					left: 70%;
+				}
+				& .btn-warp{
+					position: absolute;
+					top: 0;
+					left: 70%;
+					
+	
+					& .btn-save {
+						border-radius: 3px;
+						width: 20px;
+						height: 20px;
+	
+						& .icon-img {
+							width: 18px;
+							top: -5px;
+						}
+					}
+
+					& .btn-cancel {
+						border-radius: 3px;
+						width: 20px;
+						height: 20px;
+						
+						& .icon-img {
+							width: 14px;
+							top: -5px;
+						}
+					}
+				}
+			}
+		}
+	}
+	.converter-wrap{
+		& 	.converter {
+			width: auto;
+			flex-direction: column;
+			align-items: flex-end;
+			margin: 0;
+	
+			&-arrows-btn {
+				position: absolute;
+				top: 46px;
+				right: -72px;
+				width: 36px;
+				& img {
+					transform: rotate(0deg);
+				}
+			}
+	
+			&-inputs {
+				justify-content: flex-start;
+				margin-bottom: 10px;
+
+				& label {
+					& span {
+						font-size: 16px;
+						margin-bottom: 2px;
+					}
+					& input {
+						padding-left: 2px;
+						font-size: 16px;				
+					}
+				}
+	
+				& select{
+					margin-left: 0px;
+					font-size: 15px;
+				}
+			}
+		}
+		& .calc-btn {
+			font-size: 15px;
+			height: 34px;
+			width: 100px;
+		}
+	
+		& .clear-btn {
+			font-size: 15px;
+			height: 34px;
+			width: 60px;
+		}
+	}
+
+	.error-msg {
+		height: 171px;
+	
+		&-text {
+			font-size: 18px;
+			& div {
+				font-size: 46px;
+			}
+		}
+	}
+}
+
+
+@media (max-width: 480px), all and (max-height: 537px) {
+	.wrapper {
+		& header {
+			& .text-logo{
+				font-size: 18px;
+			}
+		}
+	}
+
+	main {
+		& table {
+			& td {
+				padding: 0px !important;
+				font-size: 10px;
+
+				& .data-input {
+					font-size: 12px;
+				}
+				& .pencil {
+					top: -10px;
+					width: 16px;
+					left: 75%;
+				}
+			}
+		}
+	}
+
+	.converter-wrap{
+		& 	.converter {
+
+			&-arrows-btn {
+				top: 30px;
+				right: -68px;
+				width: 30px;
+			}
+	
+			&-inputs {
+
+				&:first-child {
+					margin: -11px 0 5px;
+				}
+				&:last-child {
+					margin-bottom: 4px;
+				}
+
+				& label {
+					& span {
+						font-size: 13px;
+					}
+					& input {
+						font-size: 13px;				
+					}
+				}
+	
+				& select{
+					font-size: 13px;
+				}
+			}
+		}
+		& .calc-btn {
+			font-size: 13px;
+			height: 28px;
+			width: 80px;
+		}
+	
+		& .clear-btn {
+			font-size: 13px;
+			height: 28px;
+			width: 55px;
+		}
+	}
+}
+
+
+@media all and (max-height: 375px) {
+	.wrapper {
+		& header {
+			height: 30px;
+			& .text-logo{
+				font-size: 18px;
+			}
+		}
+	
+		& footer {
+			height: 30px;
+			font-size: 10px;
+		}
+	}
+	main {
+		padding-top: 20px;
+		height: calc(100vh - 60px);
+
+		& table {
+			& td {
+				font-size: 8px;
+
+				& .data-input {
+					font-size: 8px;
+				}
+			}
+		}
+	}
+
+	.converter-wrap{
+		& 	.converter {
+			&-arrows-btn {
+				top: 10px;
+				right: -65px;
+				width: 26px;
+			}
+	
+			&-inputs {
+
+				&:first-child {
+					margin: -15px 0 0;
+				}
+				&:last-child {
+					margin-bottom: 0;
+				}
+
+				& label {
+					& span {
+						font-size: 9px;
+					}
+					& input {
+						font-size: 9px;				
+					}
+				}
+	
+				& select{
+					font-size: 10px;
+				}
+			}
+		}
+		& .calc-btn {
+			font-size: 10px;
+			height: 20px;
+			width: 70px;
+		}
+	
+		& .clear-btn {
+			font-size: 10px;
+			height: 20px;
+			width: 50px;
+		}
+	}
+}
