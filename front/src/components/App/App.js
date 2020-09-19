@@ -25,7 +25,7 @@ const App = (props) => {
         return ()=> clearInterval(i);
     }, [])
 
-    const errorStyle = props.error ? 'd-none' : 'd-none';
+    const errorStyle = props.error ? '' : 'd-none';
 
     return (
         <>

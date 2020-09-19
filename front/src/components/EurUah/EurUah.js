@@ -142,7 +142,7 @@ const EurUan = (props) => {
     }
 
     const cancelSale = () => {
-        setBuy(data.newSale)
+        setSale(data.newSale)
         setBtnSale('d-none');
     }
 
