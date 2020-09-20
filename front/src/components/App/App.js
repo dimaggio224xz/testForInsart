@@ -23,7 +23,12 @@ const App = (props) => {
         }, 5100);
 
         return ()=> clearInterval(i);
-    }, [])
+    }, []) // I dont know why React see problem
+        // in this, because in documentation React
+        // writed: " If you want to run an effect 
+        //and clean it up only once (on mount and 
+        //unmount), you can pass an empty 
+        //array ([]) as a second argument. "
 
     const errorStyle = props.error ? '' : 'd-none';
 
