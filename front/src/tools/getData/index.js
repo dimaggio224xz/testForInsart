@@ -30,6 +30,6 @@ export default async function () {
             sale: +(+a[3].sale).toFixed(0)
         }
     }
-
+    
     return obj;
 }

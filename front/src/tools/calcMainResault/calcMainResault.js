@@ -1,4 +1,16 @@
+import c from '../chackObj'
+
 function calcMainResault(num, s1, s2, p) {
+    const arr = ['UAH', 'BTC', 'USD', 'EUR']
+    if (isNaN(num) || !arr.includes(s1) || !arr.includes(s1) || !p) {
+        return false;
+    }
+    if (c`${p}.USD_UAH.newSale` || c`${p}.USD_UAH.newBuy` || 
+    c`${p}.BTC_USD.newBuy` || c`${p}.BTC_USD.newSale` || 
+    c`${p}.EUR_UAH.newBuy` || c`${p}.EUR_UAH.newSale`){
+
+    }
+
     if (!p.error) {
         num = +num;
 
